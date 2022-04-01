@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "testuserapi_tz"
+version = "0.1.0"
+description = ""
+authors = ["DmitryIvanoff <d-iv.96@yandex.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.0.3"
+djangorestframework = "^3.13.1"
+django-filter = "^21.1"
+pytest = "^7.1.1"
+pytest-cov = "^3.0.0"
+drf-spectacular = "^0.22.0"
+django-cors-headers = "^3.11.0"
+psycopg2-binary = "^2.9.3"
+tenacity = "^8.0.1"
+django-extensions = "^3.1.5"
+django-colorfield = "^0.6.3"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.10.1"
+autoflake = "^1.4"
+black = "^22.3.0"
+mypy = "^0.942"
+django-silk = "^4.3.0"
+ipython = "^8.2.0"
+django-stubs = "^1.10.1"
+djangorestframework-stubs = "^1.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U testuserapi" ]
+      interval: 1s
+      timeout: 1s
+      retries: 10
+    env_file:
+      - config/local/env.example
+    environment:
+      - POSTGRES_DB=testuserapi
+      - POSTGRES_USER=testuserapi
+      - POSTGRES_PASSWORD=testuserapi
+    expose:
+      - "5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: config/local/Dockerfile
+      args:
+        INSTALL_DEV: ${INSTALL_DEV-true}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./src:/usr/src/app
+    ports:
+      - "8888:8888"
+    env_file: config/local/env.example
+
+volumes:
+  postgres_data:
