@@ -11,6 +11,8 @@ THIRD_PART_APPS = [
     "rest_framework",
     "corsheaders",
     "django_filters",
+    'colorfield',
+    'django_extensions',
 ]
 
 LOCAL_APPS = [
